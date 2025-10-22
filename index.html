@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Chihuahua</title>
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #333;
+      --color-header: #004aad;
+      --color-link: white;
+      --color-link-hover: #f0f0f0;
+    }
+
+    /* 🌙 Estilos automáticos para modo oscuro */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #121212;
+        --color-text: #e0e0e0;
+        --color-header: #1e1e1e;
+        --color-link: #e0e0e0;
+        --color-link-hover: #333;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: var(--color-header);
+      color: var(--color-link);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 40px;
+      width: auto;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-link);
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: var(--color-link-hover);
+      color: var(--color-header);
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--color-bg);
+      min-width: 200px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .dropdown-content a:hover {
+      background: var(--color-link-hover);
+      color: var(--color-header);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: var(--color-header);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+      }
+      nav a {
+        text-align: center;
+        padding: 15px;
+      }
+      nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .dropdown:hover .dropdown-content {
+        display: none; /* en móvil, no desplegar con hover */
+      }
+      .dropdown.active .dropdown-content {
+        display: block;
+        position: static;
+        box-shadow: none;
+      }
+    }
+
+    main {
+      text-align: center;
+      padding: 50px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo de la empresa">
+      <h2>INDEX CHIHUAHUA</h2>
+    </div>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <nav id="menu">
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(event)">Fútbol ▾</a>
+        <div class="dropdown-content">
+          <a href="futbol7.html">Fútbol 7x7 Femenil</a>
+          <a href="futbol-rapido.html">Fútbol Rápido</a>
+          <a href="futbol-Varonil.html">Fútbol Varonil</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(event)">Voleibol ▾</a>
+        <div class="dropdown-content">
+          <a href="voleibol-femenil.html">Voleibol Femenil</a>
+          <a href="voleibol-varonil.html">Voleibol Varonil</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(event)">Básquetbol ▾</a>
+        <div class="dropdown-content">
+          <a href="basquetbol-femenil.html">Básquetbol Femenil</a>
+          <a href="basquetbol-varonil.html">Básquetbol Varonil</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(event)">Tochito ▾</a>
+        <div class="dropdown-content">
+          <a href="tochito-femenil.html">Tochito Femenil</a>
+          <a href="tochito-varonil.html">Tochito Varonil</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(event)">Softbol ▾</a>
+        <div class="dropdown-content">
+          <a href="softbol-femenil.html">Softbol Femenil</a>
+          <a href="softbol-varonil.html">Softbol Varonil</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bienvenido a Index Chihuahua</h1>
+    <p>Selecciona un deporte en el menú para ver más información.</p>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const parent = event.target.parentElement;
+      parent.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
